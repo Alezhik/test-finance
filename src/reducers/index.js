@@ -1,9 +1,24 @@
 import { combineReducers } from 'redux';
-import { ADD_TRASACTION } from './actions';
+import { ADD_TRASACTION } from '../actions';
 
 const initialState = {
-  transactions: [],
-  balance: 0
+  transactions: [{
+    type: '-', // credit
+    amount: 300,
+    category: 'Some category',
+    description: 'SOme text abotu trasaction',
+    fromTo: 'bank',
+    id: '1'
+  },
+  {
+    type: '', // debit
+    amount: 700,
+    category: 'Progect price',
+    description: 'Pay you for your work',
+    fromTo: 'Some Noname',
+    id: '2'
+  }],
+  balance: 400
 };
 
 function finance(state = initialState, action) {
