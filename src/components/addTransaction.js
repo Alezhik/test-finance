@@ -75,11 +75,6 @@ export default function AddTransaction({ successAdd, add }) {
 		} else {
 			setValues({ ...values, [`${name}Error`]: true });
 		}
-		if (values.amount < 0) {
-			setValues({ ...values, type: '-' });
-		} else {
-			setValues({ ...values, type: '+' });
-		}
 	}
 
 	const defualtPropsTextField = {
@@ -125,6 +120,7 @@ export default function AddTransaction({ successAdd, add }) {
 					InputLabelProps={{
 						shrink: true,
 					}}
+					inputProps={{ min: "0" }}
 					error={values.amountError}
 					{...defualtPropsTextField}
 				/>

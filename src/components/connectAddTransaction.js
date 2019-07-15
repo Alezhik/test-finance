@@ -3,7 +3,6 @@ import { addTransaction } from '../actions';
 import AddTransaction from './addTransaction';
 
 const mapStateToProps = state => {
-	console.log('state', state);
 	return {
 		successAdd: state.finance.successAdd
 	}

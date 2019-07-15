@@ -7,7 +7,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import Info from './info';
+import ConnectInfo from './connectInfo';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,17 +33,17 @@ const TramsactionItem = ({classes, category, type, amount, fromTo, description }
 			aria-controls="panel1a-content"
 			id="panel1a-header"
 		>
-			<Typography className={classes.heading}>{category}</Typography>
+			<Typography className={classes.heading}>Category: {category}</Typography>
 			<Typography className={classNames(classes.heading, classes.secondaryHeading)}>
 				{`${type}${amount}`}
 			</Typography>
 		</ExpansionPanelSummary>
 		<ExpansionPanelDetails className={classes.details}>
 			<Typography>
-				{fromTo}
+				FromTo: {fromTo}
 			</Typography>
 			<Typography>
-				{description}
+				Description: {description}
 			</Typography>
 		</ExpansionPanelDetails>
 	</ExpansionPanel>
@@ -54,7 +54,7 @@ export default function Transactions({ transactions }) {
 
 	return (
 		<div className={classes.root}>
-			<Info />
+			<ConnectInfo />
 			{transactions.sort((a, b) => b.id - a.id).map(transaction => 
 				<TramsactionItem classes={classes} {...transaction} key={transaction.id} />
 			)}

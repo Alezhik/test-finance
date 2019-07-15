@@ -26,10 +26,12 @@ const initialState = {
 };
 
 function finance(state = initialState, action) {
-  console.log('action', action);
-  console.log('state', state);
   switch (action.type) {
     case ADD_TRASACTION:
+      let amount = action.transaction.amount;
+      if (action.transaction.type === '-') {
+        amount = amount * -1 ;
+      }
       return {
         ...state,
         transactions: [
@@ -41,7 +43,8 @@ function finance(state = initialState, action) {
           }
         ],
         curentId: state.curentId + 1,
-        successAdd: true
+        successAdd: true,
+        balance: state.balance + amount
       };
     default:
       return {
