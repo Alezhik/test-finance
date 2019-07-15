@@ -9,6 +9,6 @@ const mapStateToProps = (state) => {
 
 const ConnectTransactions = connect(
 	mapStateToProps
-)(Transactions)
+)(Transactions);
 
-export default ConnectTransactions
+export default ConnectTransactions;
