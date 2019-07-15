@@ -7,6 +7,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import Info from './info';
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -52,7 +54,8 @@ export default function Transactions({ transactions }) {
 
 	return (
 		<div className={classes.root}>
-			{transactions.map(transaction => 
+			<Info />
+			{transactions.sort((a, b) => b.id - a.id).map(transaction => 
 				<TramsactionItem classes={classes} {...transaction} key={transaction.id} />
 			)}
 		</div>
